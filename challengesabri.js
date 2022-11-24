@@ -102,9 +102,14 @@ switch(numberFromConsole) {
 
   case 8:
     /* ### Mostrar true o false por consola si todos los alumnos de la clase son chicas */
+    
     break;
   case 9:
       /* Mostrar por consola los nombres de los alumnos que tengan entre 20 y 25 años. */
+      let alumnos25y30 = students.filter(students => students.age > 20  & students.age<25);
+      for (let i = 0; i <= alumnos25y30.length-1 ; i++) {
+        console.log(alumnos25y30[i].name) 
+        }
       break;
   case 10:
         /* ### Añadir un alumno nuevo con los siguientes datos:aleatorios (nombre y el género tienen que ir acordes). */
