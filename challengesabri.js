@@ -4,6 +4,9 @@
   veis en este repositorio. En caso de que no os funcione, contactadme por discord.
 */
 import readline from 'readline';
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
 
 const students = [{
   age: 32,
@@ -77,6 +80,7 @@ switch(numberFromConsole) {
     break;
   case 5:
     /* ### Eliminar un alumno aleatoriamente de la clase. */
+    students.splice(getRandomInt(students.length),1)
     break;
   case 6:
     for (let i = 0; i <= students.length-1 ; i++) {
