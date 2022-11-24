@@ -4,9 +4,7 @@
   veis en este repositorio. En caso de que no os funcione, contactadme por discord.
 */
 import readline from 'readline';
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
+
 
 const students = [{
   age: 32,
@@ -25,7 +23,21 @@ const availableMaleNames = ['pepe', 'juan', 'victor', 'Leo', 'francisco', 'carlo
 const availableFemaleNames = ['cecilia', 'ana', 'luisa', 'silvia', 'isabel', 'virginia'];
 const availableGenders = ['male', 'female'];
 
+/*funciones que quiero poner en otro archivo*/
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
+function choiceName(gender){
+  let nombre= ""
+  if (gender==="female") { 
+    nombre =availableFemaleNames[getRandomInt(availableFemaleNames.length-1)];}
+  else {nombre=availableMaleNames [getRandomInt(availableMaleNames.length-1)];}
+  return nombre;
+  }
 // configuramos la utilidad de node para que los datos se pidan y se muestren por consola.
 const rl = readline.createInterface({
   input: process.stdin,
@@ -113,7 +125,10 @@ switch(numberFromConsole) {
       break;
   case 10:
         /* ### Añadir un alumno nuevo con los siguientes datos:aleatorios (nombre y el género tienen que ir acordes). */
-      break; 
+      let randomGender= availableGenders[getRandomInt(2)]
+      let randomage= Math. round(getRandomArbitrary(20, 50))
+      students.push({age: randomage , examScores: [] , gender: randomGender, name: choiceName(randomGender)})
+        break; 
   case 11:
         /* ### Mostrar por consola el nombre de la persona más joven de la clase.. */
       break; 
