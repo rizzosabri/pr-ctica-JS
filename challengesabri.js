@@ -83,15 +83,23 @@ switch(numberFromConsole) {
     students.splice(getRandomInt(students.length),1)
     break;
   case 6:
+    /* ### Mostrar por consola todos los datos de los alumnos que son chicas. */
     for (let i = 0; i <= students.length-1 ; i++) {
       if (students[i].gender== "female"){
       console.log(students[i]) 
-      } }
-      /* ### Mostrar por consola todos los datos de los alumnos que son chicas. */
-      break;
-  case 7:
-        /* ### Mostrar por consola el número de chicos y chicas que hay en la clase. */
+      } }     
       break; 
+  case 7:
+    /* ### Mostrar por consola el número de chicos y chicas que hay en la clase. */
+    let numberFemale =0;
+    let numberMale =0;
+    for (let i = 0; i <= students.length-1 ; i++) {
+        if (students[i].gender== "female"){
+        numberFemale= numberFemale+ 1;
+        }else {numberMale= numberMale + 1; } } 
+        console.log("Cantidad de alumnos de genero FEMENINO: ", numberFemale ,"\nCantidad de alumnos de genero MASCULINO: ", numberMale)
+        break;
+
   case 8:
     /* ### Mostrar true o false por consola si todos los alumnos de la clase son chicas */
     break;
