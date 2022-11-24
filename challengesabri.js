@@ -141,7 +141,11 @@ switch(numberFromConsole) {
   case 14:
         /* ### Añadir nueva nota a los alumnos. Por cada alumno de la clase,
          tendremos que calcular una nota de forma aleatoria(número entre 0 y 10) y añadirla a su listado de notas. */
-      break; 
+         for (let i = 0; i <= students.length-1 ; i++) {
+        let notaAleatoria = Math. round(getRandomArbitrary(0, 10))
+        students[i].examScores.push(notaAleatoria)
+    }
+         break; 
   case 15:
         /* ### Ordenar el array de alumnos alfabéticamente según su nombre. */
       break; 
