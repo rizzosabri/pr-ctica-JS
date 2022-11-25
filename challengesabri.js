@@ -110,7 +110,6 @@ switch(numberFromConsole) {
         }else {numberMale= numberMale + 1; } } 
         console.log("Cantidad de alumnos de genero FEMENINO: ", numberFemale ,"\nCantidad de alumnos de genero MASCULINO: ", numberMale)
         break;
-
   case 8:
     /* ### Mostrar true o false por consola si todos los alumnos de la clase son chicas */
     let result=true
@@ -119,9 +118,7 @@ switch(numberFromConsole) {
         result= false;} } 
 
     console.log(result)    
-    break;
-    
-    break;
+    break;  
   case 9:
       /* Mostrar por consola los nombres de los alumnos que tengan entre 20 y 25 años. */
       let alumnos25y30 = students.filter(students => students.age > 20  & students.age<25);
@@ -151,6 +148,13 @@ switch(numberFromConsole) {
       break; 
   case 12:
     /* ###Mostrar por consola la edad media de todos los alumnos de la clase */
+    let arrAge=[]
+    for (let i = 0; i <= students.length-1 ; i++) {
+      arrAge.push(students[i].age)
+    }   
+    console.log((arrAge.reduce(function(a, b){ return a + b; }))/arrAge.length)
+    
+
     break;
   case 13:
       /* Mostrar por consola la edad media de las chicas de la clase. */
