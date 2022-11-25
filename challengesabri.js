@@ -10,7 +10,7 @@ const students = [{
   age: 32,
   examScores: [],
   gender: 'male',
-  name: 'edu'
+  name: 'Leodu'
 },
 {
   age: 29,
@@ -148,6 +148,16 @@ switch(numberFromConsole) {
          break; 
   case 15:
         /* ### Ordenar el array de alumnos alfabéticamente según su nombre. */
+       students.sort(function(a,b) {
+          
+          if (a.name.toLowerCase() > b.name.toLowerCase()) {
+            return 1;
+          }
+          if (a.name.toLowerCase() < b.name.toLowerCase()) {
+            return -1;
+          }
+          return 0;
+        })
       break; 
 
 }
