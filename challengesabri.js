@@ -22,22 +22,20 @@ const availableMaleNames = ['pepe', 'juan', 'victor', 'Leo', 'francisco', 'carlo
 const availableFemaleNames = ['cecilia', 'ana', 'luisa', 'silvia', 'isabel', 'virginia'];
 const availableGenders = ['male', 'female'];
 
-/*funciones que quiero poner en otro archivo*/
+/*funciones que quiero poner en otro archivo e IMPORTAR*/
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
-
 function choiceName(gender){
   let nombre= ""
   if (gender==="female") { 
     nombre =availableFemaleNames[getRandomInt(availableFemaleNames.length-1)];}
   else {nombre=availableMaleNames [getRandomInt(availableMaleNames.length-1)];}
   return nombre;
-  }
-
+}
 function edadMedia(students){ 
 let arrAge=[]
 for (let i = 0; i <= students.length-1 ; i++) {
@@ -74,10 +72,8 @@ let numberFromConsole = 0
 
 do{
 console.log(" Elija un numero del Menu: \n1- Ver todos los alumnos. \n2- Ver la cantidad de alumnos que hay en clase \n3- Ver los nombres de los alumnos. \n4- Eliminar el último alumno de la clase. \n5- Eliminar un alumno aleatoriamente de la clase.\n6- Ver los datos de los alumnos que son chicas.\n7- Ver el número de chicos y chicas que hay en la clase.\n8- Ver true o false por consola si todos los alumnos de la clase son chicas.\n9- Ver los nombres de los alumnos que tengan entre 20 y 25 años.\n10- Añadir un alumno nuevo.\n11- Ver el nombre de la persona más joven de la clase.\n12- Ver la edad media de todos los alumnos de la clase.\n13- Ver la edad media de las chicas de la clase.\n14- Añadir nueva nota (de manera aleatoria)a los alumnos. \n15- Ver los alumnos alfabéticamente según su nombre. ")
-
 // consumidor1
 numberFromConsole = await getNumberFromConsole()
-
 
 switch(numberFromConsole) {
   case 1: 
@@ -185,6 +181,7 @@ switch(numberFromConsole) {
           }
           return 0;
         })
+        console.log(students)
       break; 
 
 }
