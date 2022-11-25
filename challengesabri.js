@@ -4,6 +4,7 @@
   veis en este repositorio. En caso de que no os funcione, contactadme por discord.
 */
 import readline from 'readline';
+import { inflate } from 'zlib';
 
 
 const students = [{
@@ -131,6 +132,17 @@ switch(numberFromConsole) {
         break; 
   case 11:
         /* ### Mostrar por consola el nombre de la persona más joven de la clase.. */
+        let nameYounger=""
+        let numberAgeYunger=students[0].age
+        
+        for (let i = 0; i <= students.length-1 ; i++) {
+          if(students[i].age <= numberAgeYunger) {
+            nameYounger = students[i].name
+            numberAgeYunger = students[i].age
+          }
+          }
+          console.log(nameYounger)  
+
       break; 
   case 12:
     /* ###Mostrar por consola la edad media de todos los alumnos de la clase */
