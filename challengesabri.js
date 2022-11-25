@@ -37,6 +37,15 @@ function choiceName(gender){
   else {nombre=availableMaleNames [getRandomInt(availableMaleNames.length-1)];}
   return nombre;
   }
+
+function edadMedia(students){ 
+let arrAge=[]
+for (let i = 0; i <= students.length-1 ; i++) {
+  arrAge.push(students[i].age)
+}   
+console.log((arrAge.reduce(function(a, b){ return a + b; }))/arrAge.length)} 
+
+
 // configuramos la utilidad de node para que los datos se pidan y se muestren por consola.
 const rl = readline.createInterface({
   input: process.stdin,
@@ -148,16 +157,13 @@ switch(numberFromConsole) {
       break; 
   case 12:
     /* ###Mostrar por consola la edad media de todos los alumnos de la clase */
-    let arrAge=[]
-    for (let i = 0; i <= students.length-1 ; i++) {
-      arrAge.push(students[i].age)
-    }   
-    console.log((arrAge.reduce(function(a, b){ return a + b; }))/arrAge.length)
+ edadMedia(students);
     
-
     break;
   case 13:
       /* Mostrar por consola la edad media de las chicas de la clase. */
+      let alumnosFemale = students.filter(students => students.gender == "female" );
+      edadMedia(alumnosFemale)
       break;
   case 14:
         /* ### Añadir nueva nota a los alumnos. Por cada alumno de la clase,
