@@ -4,14 +4,12 @@
   veis en este repositorio. En caso de que no os funcione, contactadme por discord.
 */
 import readline from 'readline';
-import { inflate } from 'zlib';
-
 
 const students = [{
   age: 32,
   examScores: [],
   gender: 'male',
-  name: 'Leodu'
+  name: 'edu'
 },
 {
   age: 29,
@@ -115,6 +113,13 @@ switch(numberFromConsole) {
 
   case 8:
     /* ### Mostrar true o false por consola si todos los alumnos de la clase son chicas */
+    let result=true
+    for (let i = 0; i <= students.length-1 ; i++) {
+      if (students[i].gender== "male"){
+        result= false;} } 
+
+    console.log(result)    
+    break;
     
     break;
   case 9:
