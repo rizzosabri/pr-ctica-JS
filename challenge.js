@@ -35,8 +35,8 @@ const rl = readline.createInterface({
 
 // productor
 async function getNumberFromConsole() {
-  const promise = new Promise((resolve, reject) => {
-    // nos permite hacer una pregunta por consola al usuario. Ojo que es un proceso asíncrono.
+  const promise = new Promise((resolve) => {
+    // pregunta por consola al usuario. 
     rl.question('Introduce un número: ', (num) => {
       rl.pause();
       resolve(parseInt (num))
@@ -102,12 +102,14 @@ switch(numberFromConsole) {
         break;
   case 8:
     /* ### Mostrar true o false por consola si todos los alumnos de la clase son chicas */
+    if ( students.length ===0){console.log("No hay alumnos en la lista")}
+    else {
     let result=true
     for (let i = 0; i <= students.length-1 ; i++) {
       if (students[i].gender== "male"){
         result= false;} } 
 
-    console.log(result)    
+    console.log(result)    }
     break;  
   case 9:
       /* Mostrar por consola los nombres de los alumnos que tengan entre 20 y 25 años. */
@@ -161,6 +163,8 @@ switch(numberFromConsole) {
          break; 
   case 15:
         /* ### Ordenar el array de alumnos alfabéticamente según su nombre. */
+        if ( students.length ===0){console.log("No hay alumnos en la lista")}
+        else {
        students.sort(function(a,b) {
           
           if (a.name.toLowerCase() > b.name.toLowerCase()) {
@@ -171,7 +175,7 @@ switch(numberFromConsole) {
           }
           return 0;
         })
-        console.log(students)
+        console.log(students) }
       break; 
   case 16:
   /* ###16- Mostrar por consola el alumno de la clase con las mejores notas.*/
@@ -184,10 +188,12 @@ switch(numberFromConsole) {
   break;
   case 17:
     let listaDePromedios= createlistaDePromedios(listaDeListasDeNotas)
+    if (listaDePromedios.length===0){console.log("no hay notas")}
+    else{
     let alumnoConMejorPromedio=students[idexOfMaxNumberOfList(listaDePromedios)].name
     console.log("El mejor promedio es:", maxNumberOfList(listaDePromedios))
     console.log ("El nombre del alumno con mejor Promedio es :", alumnoConMejorPromedio)
- 
+  }
   case 18:
 
     for (let i = 0; i <= students.length-1 ; i++) {
