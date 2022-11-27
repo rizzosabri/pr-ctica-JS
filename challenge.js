@@ -1,10 +1,15 @@
 
 import readline from 'readline';
-import { getRandomInt } from './myFunctions.js';
+import { getRandomInt} from './myFunctions.js';
 import { getRandomArbitrary } from './myFunctions.js';
 import { choiceName } from './myFunctions.js';
 import { edadMedia } from './myFunctions.js';
 import { idexOfMaxNumberOfList } from './myFunctions.js';
+import { creoListaDeListas } from './myFunctions.js';
+import { listaDeSumatoria } from './myFunctions.js';
+import { createlistaDePromedios } from './myFunctions.js';
+import { maxNumberOfList } from './myFunctions.js';
+
 const students = [{
   age: 32,
   examScores: [],
@@ -162,22 +167,23 @@ switch(numberFromConsole) {
         })
         console.log(students)
       break; 
-case 16:
+  case 16:
   /* ###16- Mostrar por consola el alumno de la clase con las mejores notas.*/
   /*creo lista de lista de notas*/
-  let listScores= []
-  for (let i = 0; i <= students.length-1 ; i++) {
-      listScores.push(students[i].examScores)   
-    }
-  /*creo lista con los totales de todos los alumnos*/
-  let listPlusScore=[]
-  for (let i = 0; i <= listScores.length-1 ; i++) {
-  listPlusScore.push(listScores[i].reduce(function(a, b){ return a + b; }))
- }
+  let listaDeListasDeNotas= creoListaDeListas(students)
+ /*creo lista con la sumatoria de notas de todos los alumnos*/
+  let listaDeSumatorioDeNotas= listaDeSumatoria(listaDeListasDeNotas) 
+  let mejorAlumno=students[idexOfMaxNumberOfList(listaDeSumatorioDeNotas)]
+  console.log ("El alumno con mejores notas es :", mejorAlumno)
 
-  console.log ("El alumno con mejores notas es :", students[idexOfMaxNumberOfList(listPlusScore)])
   break;
   case 17:
+    let listDeListasDeNotas= creoListaDeListas(students)
+    let listaDePromedios= createlistaDePromedios(listDeListasDeNotas)
+    let alumnoConMejorPromedio=students[idexOfMaxNumberOfList(listaDePromedios)]
+    console.log("El mejor promedio es:", maxNumberOfList(listaDePromedios))
+    console.log ("El alumno con mejor Promedio es :", alumnoConMejorPromedio)
+    
 
 }
-}while(numberFromConsole!== 0 && numberFromConsole>=1 && numberFromConsole<=16);
+}while(numberFromConsole!== 0 && numberFromConsole>=1 && numberFromConsole<=18);

@@ -34,3 +34,35 @@
        }
     }     
     return indexMaxNumber  }  
+
+    export function maxNumberOfList(list){ 
+      let maxNumber= list[0]
+      for (let i = 0; i <= list.length-1 ; i++) {
+        if (list[i]> maxNumber){ 
+          maxNumber= list[i]
+         }
+      }     
+      return maxNumber  } 
+
+      /*creo lista de lista de notas*/
+ export function creoListaDeListas(objeto){
+  let listScores= []
+  for (let i = 0; i <= objeto.length-1 ; i++) {
+      listScores.push(objeto[i].examScores)   
+    }
+    return listScores }
+
+
+  /*creo lista con la sumatoria de notas de todos los alumnos*/
+  export function listaDeSumatoria(listaDeListas){
+  let listPlusScore=[]
+  for (let i = 0; i <= listaDeListas.length-1 ; i++) {
+  listPlusScore.push((listaDeListas[i].reduce(function(a, b){ return a + b; })))
+ }return listPlusScore }
+
+   /*creo lista con la sumatoria de notas de todos los alumnos*/
+   export function createlistaDePromedios(listaDeListas){
+    let listPromdios=[]
+    for (let i = 0; i <= listaDeListas.length-1 ; i++) {
+      listPromdios.push(((listaDeListas[i].reduce(function(a, b){ return a + b; })))/listaDeListas[i].length)
+   }return listPromdios }
