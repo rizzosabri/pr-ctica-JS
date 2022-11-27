@@ -54,9 +54,12 @@ let numberFromConsole = 0
 
 
 do{
-console.log(" Elija un numero del Menu: \n1- Ver todos los alumnos. \n2- Ver la cantidad de alumnos que hay en clase \n3- Ver los nombres de los alumnos. \n4- Eliminar el último alumno de la clase. \n5- Eliminar un alumno aleatoriamente de la clase.\n6- Ver los datos de los alumnos que son chicas.\n7- Ver el número de chicos y chicas que hay en la clase.\n8- Ver true o false por consola si todos los alumnos de la clase son chicas.\n9- Ver los nombres de los alumnos que tengan entre 20 y 25 años.\n10- Añadir un alumno nuevo.\n11- Ver el nombre de la persona más joven de la clase.\n12- Ver la edad media de todos los alumnos de la clase.\n13- Ver la edad media de las chicas de la clase.\n14- Añadir nueva nota (de manera aleatoria)a los alumnos. \n15- Ver los alumnos alfabéticamente según su nombre. ")
+console.log(" Elija un numero del Menu: \n1- Ver todos los alumnos. \n2- Ver la cantidad de alumnos que hay en clase \n3- Ver los nombres de los alumnos. \n4- Eliminar el último alumno de la clase. \n5- Eliminar un alumno aleatoriamente de la clase.\n6- Ver los datos de los alumnos que son chicas.\n7- Ver el número de chicos y chicas que hay en la clase.\n8- Ver true o false por consola si todos los alumnos de la clase son chicas.\n9- Ver los nombres de los alumnos que tengan entre 20 y 25 años.\n10- Añadir un alumno nuevo.\n11- Ver el nombre de la persona más joven de la clase.\n12- Ver la edad media de todos los alumnos de la clase.\n13- Ver la edad media de las chicas de la clase.\n14- Añadir nueva nota (de manera aleatoria)a los alumnos. \n15- Ver los alumnos alfabéticamente según su nombre. \n16- Ver alumno de la clase con las mejores notas. \n17- Ver la nota media más alta de la clase y el nombre del alumno al que pertenece. \n18- Añadir un punto extra a cada nota existente de todos los alumnos. Recordad que la nota máxima posible es 10. Si los alumnos aún no tienen registrada ninguna nota, les pondremos un 10.")
 // consumidor1
 numberFromConsole = await getNumberFromConsole()
+
+
+let listaDeListasDeNotas= creoListaDeListas(students)
 
 switch(numberFromConsole) {
   case 1: 
@@ -169,8 +172,7 @@ switch(numberFromConsole) {
       break; 
   case 16:
   /* ###16- Mostrar por consola el alumno de la clase con las mejores notas.*/
-  /*creo lista de lista de notas*/
-  let listaDeListasDeNotas= creoListaDeListas(students)
+ 
  /*creo lista con la sumatoria de notas de todos los alumnos*/
   let listaDeSumatorioDeNotas= listaDeSumatoria(listaDeListasDeNotas) 
   let mejorAlumno=students[idexOfMaxNumberOfList(listaDeSumatorioDeNotas)]
@@ -178,12 +180,23 @@ switch(numberFromConsole) {
 
   break;
   case 17:
-    let listDeListasDeNotas= creoListaDeListas(students)
-    let listaDePromedios= createlistaDePromedios(listDeListasDeNotas)
-    let alumnoConMejorPromedio=students[idexOfMaxNumberOfList(listaDePromedios)]
+    let listaDePromedios= createlistaDePromedios(listaDeListasDeNotas)
+    let alumnoConMejorPromedio=students[idexOfMaxNumberOfList(listaDePromedios)].name
     console.log("El mejor promedio es:", maxNumberOfList(listaDePromedios))
-    console.log ("El alumno con mejor Promedio es :", alumnoConMejorPromedio)
-    
+    console.log ("El nombre del alumno con mejor Promedio es :", alumnoConMejorPromedio)
+ 
+  case 18:
 
+    for (let i = 0; i <= students.length-1 ; i++) {
+      if(students[i].examScores=== []) {students[i].examScores= [10]}
+      else {
+      for (let n = 0; n <= students[i].examScores.length-1 ; n++){
+        
+        if(students[i].examScores[n]!=10) {
+        students[i].examScores[n]= students[i].examScores[n] + 1 ;}
+      }};
+  }
+
+break;
 }
 }while(numberFromConsole!== 0 && numberFromConsole>=1 && numberFromConsole<=18);
