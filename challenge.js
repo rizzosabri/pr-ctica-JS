@@ -1,9 +1,9 @@
-/* 
-  si utilizáis algún import en vuestra solución, recordad que hay que indicarle a node 
-  que estamos utilizando módulos. Para ello, debemos incluir el fichero package.json que 
-  veis en este repositorio. En caso de que no os funcione, contactadme por discord.
-*/
+
 import readline from 'readline';
+import { getRandomInt } from './myFunctions.js';
+import { getRandomArbitrary } from './myFunctions.js';
+import { choiceName } from './myFunctions.js';
+import { edadMedia } from './myFunctions.js';
 
 const students = [{
   age: 32,
@@ -18,30 +18,8 @@ const students = [{
   name: 'silvia'
 }]
 
-const availableMaleNames = ['pepe', 'juan', 'victor', 'Leo', 'francisco', 'carlos'];
-const availableFemaleNames = ['cecilia', 'ana', 'luisa', 'silvia', 'isabel', 'virginia'];
-const availableGenders = ['male', 'female'];
 
-/*funciones que quiero poner en otro archivo e IMPORTAR*/
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
-function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
-}
-function choiceName(gender){
-  let nombre= ""
-  if (gender==="female") { 
-    nombre =availableFemaleNames[getRandomInt(availableFemaleNames.length-1)];}
-  else {nombre=availableMaleNames [getRandomInt(availableMaleNames.length-1)];}
-  return nombre;
-}
-function edadMedia(students){ 
-let arrAge=[]
-for (let i = 0; i <= students.length-1 ; i++) {
-  arrAge.push(students[i].age)
-}   
-console.log((arrAge.reduce(function(a, b){ return a + b; }))/arrAge.length)} 
+const availableGenders = ['male', 'female'];
 
 
 // configuramos la utilidad de node para que los datos se pidan y se muestren por consola.
@@ -130,6 +108,7 @@ switch(numberFromConsole) {
       for (let i = 0; i <= alumnos25y30.length-1 ; i++) {
         console.log(alumnos25y30[i].name) 
         }
+      if (alumnos25y30=[]){ console.log("NO HAY ALUMNOS CON ESAS EDADES.")}
       break;
   case 10:
         /* ### Añadir un alumno nuevo con los siguientes datos:aleatorios (nombre y el género tienen que ir acordes). */
