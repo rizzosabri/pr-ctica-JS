@@ -128,8 +128,9 @@ switch(numberFromConsole) {
   case 11:
         /* ### Mostrar por consola el nombre de la persona más joven de la clase.. */
         let nameYounger=""
-        let numberAgeYunger=students[0].age
-        
+        if ( students.length ===0){console.log("No hay alumnos en la lista")}
+    else {
+      let numberAgeYunger=students[0].age
         for (let i = 0; i <= students.length-1 ; i++) {
           if(students[i].age <= numberAgeYunger) {
             nameYounger = students[i].name
@@ -137,7 +138,7 @@ switch(numberFromConsole) {
           }
           }
           console.log(nameYounger)  
-
+        }
       break; 
   case 12:
     /* ###Mostrar por consola la edad media de todos los alumnos de la clase */
@@ -183,17 +184,21 @@ switch(numberFromConsole) {
  /*creo lista con la sumatoria de notas de todos los alumnos*/
   let listaDeSumatorioDeNotas= listaDeSumatoria(listaDeListasDeNotas) 
   let mejorAlumno=students[idexOfMaxNumberOfList(listaDeSumatorioDeNotas)]
-  console.log ("El alumno con mejores notas es :", mejorAlumno)
+  if (mejorAlumno.examScores.length===0){console.log("NO HAY NOTAS")}
+  else
+  {console.log ("El alumno con mejores notas es :", mejorAlumno)}
 
   break;
   case 17:
     let listaDePromedios= createlistaDePromedios(listaDeListasDeNotas)
-    if (listaDePromedios.length===0){console.log("no hay notas")}
-    else{
+    
+  if (maxNumberOfList(listaDePromedios)===0){console.log ("NO HAY NOTAS")}
+  else {
     let alumnoConMejorPromedio=students[idexOfMaxNumberOfList(listaDePromedios)].name
     console.log("El mejor promedio es:", maxNumberOfList(listaDePromedios))
     console.log ("El nombre del alumno con mejor Promedio es :", alumnoConMejorPromedio)
   }
+  break;
   case 18:
 
     for (let i = 0; i <= students.length-1 ; i++) {

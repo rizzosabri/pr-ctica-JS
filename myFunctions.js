@@ -67,7 +67,9 @@
    export function createlistaDePromedios(listaDeListas){
     let listPromedios=[]
     for (let i = 0; i <= listaDeListas.length-1 ; i++) {
-      listPromedios.push(((listaDeListas[i].reduce(function(a, b){ return a + b; })))/listaDeListas[i].length)
+      if (listaDeListas[i].length===0){listPromedios.push(0)}
+      else {
+      listPromedios.push(((listaDeListas[i].reduce(function(a, b){ return a + b; })))/listaDeListas[i].length)}
    }return listPromedios }
 
    
