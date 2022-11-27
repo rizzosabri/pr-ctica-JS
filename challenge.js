@@ -4,7 +4,7 @@ import { getRandomInt } from './myFunctions.js';
 import { getRandomArbitrary } from './myFunctions.js';
 import { choiceName } from './myFunctions.js';
 import { edadMedia } from './myFunctions.js';
-
+import { idexOfMaxNumberOfList } from './myFunctions.js';
 const students = [{
   age: 32,
   examScores: [],
@@ -22,7 +22,7 @@ const students = [{
 const availableGenders = ['male', 'female'];
 
 
-// configuramos la utilidad de node para que los datos se pidan y se muestren por consola.
+//para que los datos se pidan y se muestren por consola.
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -162,6 +162,22 @@ switch(numberFromConsole) {
         })
         console.log(students)
       break; 
+case 16:
+  /* ###16- Mostrar por consola el alumno de la clase con las mejores notas.*/
+  /*creo lista de lista de notas*/
+  let listScores= []
+  for (let i = 0; i <= students.length-1 ; i++) {
+      listScores.push(students[i].examScores)   
+    }
+  /*creo lista con los totales de todos los alumnos*/
+  let listPlusScore=[]
+  for (let i = 0; i <= listScores.length-1 ; i++) {
+  listPlusScore.push(listScores[i].reduce(function(a, b){ return a + b; }))
+ }
+
+  console.log ("El alumno con mejores notas es :", students[idexOfMaxNumberOfList(listPlusScore)])
+  break;
+  case 17:
 
 }
-}while(numberFromConsole!== 0 && numberFromConsole>=1 && numberFromConsole<=15);
+}while(numberFromConsole!== 0 && numberFromConsole>=1 && numberFromConsole<=16);

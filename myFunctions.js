@@ -22,6 +22,15 @@
   for (let i = 0; i <= students.length-1 ; i++) {
     arrAge.push(students[i].age)
   }   
-  return console.log((arrAge.reduce(function(a, b){ return a + b; }))/arrAge.length)} 
+  return console.log(Math. round((arrAge.reduce(function(a, b){ return a + b; }))/arrAge.length))} 
   
-  
+  export function idexOfMaxNumberOfList(list){ 
+    let maxNumber= list[0]
+    let indexMaxNumber = 0
+    for (let i = 0; i <= list.length-1 ; i++) {
+      if (list[i]> maxNumber){ 
+        maxNumber= list[i]
+        indexMaxNumber= i
+       }
+    }     
+    return indexMaxNumber  }  
