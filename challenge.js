@@ -182,14 +182,20 @@ switch(numberFromConsole) {
   /* ###16- Mostrar por consola el alumno de la clase con las mejores notas.*/
  
  /*creo lista con la sumatoria de notas de todos los alumnos*/
+  listaDeListasDeNotas= creoListaDeListas(students)
+  if (listaDeListasDeNotas.length===0){console.log("NO HAY ALUMNOS")}
+  else{
   let listaDeSumatorioDeNotas= listaDeSumatoria(listaDeListasDeNotas) 
   let mejorAlumno=students[idexOfMaxNumberOfList(listaDeSumatorioDeNotas)]
   if (mejorAlumno.examScores.length===0){console.log("NO HAY NOTAS")}
   else
-  {console.log ("El alumno con mejores notas es :", mejorAlumno)}
+  {console.log ("El alumno con mejores notas es :", mejorAlumno)}}
 
   break;
   case 17:
+    listaDeListasDeNotas= creoListaDeListas(students)
+  if (listaDeListasDeNotas.length===0){console.log("NO HAY ALUMNOS")}
+  else{
     let listaDePromedios= createlistaDePromedios(listaDeListasDeNotas)
     
   if (maxNumberOfList(listaDePromedios)===0){console.log ("NO HAY NOTAS")}
@@ -197,7 +203,7 @@ switch(numberFromConsole) {
     let alumnoConMejorPromedio=students[idexOfMaxNumberOfList(listaDePromedios)].name
     console.log("El mejor promedio es:", maxNumberOfList(listaDePromedios))
     console.log ("El nombre del alumno con mejor Promedio es :", alumnoConMejorPromedio)
-  }
+  }  }
   break;
   case 18:
 
