@@ -188,14 +188,12 @@ switch(numberFromConsole) {
   case 18:
 
     for (let i = 0; i <= students.length-1 ; i++) {
-      if(students[i].examScores=== []) {students[i].examScores= [10]}
-      else {
-      for (let n = 0; n <= students[i].examScores.length-1 ; n++){
-        
+      if (students[i].examScores.length===0){students[i].examScores.push(10)}
+      else{
+      for (let n = 0; n <= students[i].examScores.length-1 ; n++){        
         if(students[i].examScores[n]!=10) {
         students[i].examScores[n]= students[i].examScores[n] + 1 ;}
-      }};
-  }
+      }};}
 
 break;
 }
