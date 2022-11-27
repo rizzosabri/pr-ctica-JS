@@ -40,8 +40,7 @@ async function getNumberFromConsole() {
     rl.question('Introduce un número: ', (num) => {
       rl.pause();
       resolve(parseInt (num))
-      // si el usuario mete un número, resolvemos la promesa con ese número.
-      // si el usuario mete una letra, debemos rechazar/rejectear la promesa.
+      
     })
   })
 
@@ -68,7 +67,7 @@ switch(numberFromConsole) {
     break;
   case 2:
   /* ### Mostrar por consola la cantidad de alumnos que hay en clase. */
-    console.log(students.length)
+    console.log("cantidad de alumnos:", students.length)
     break;
   case 3:
   /* ### Mostrar por consola todos los nombres de los alumnos */
@@ -140,13 +139,17 @@ switch(numberFromConsole) {
       break; 
   case 12:
     /* ###Mostrar por consola la edad media de todos los alumnos de la clase */
- edadMedia(students);
+    if ( students.length ===0){console.log("No hay alumnos en la lista")}
+    else {
+ edadMedia(students);}
     
     break;
   case 13:
       /* Mostrar por consola la edad media de las chicas de la clase. */
       let alumnosFemale = students.filter(students => students.gender == "female" );
-      edadMedia(alumnosFemale)
+      if ( alumnosFemale.length ===0){console.log("No hay alumnos de genero Femenino")}
+      else {"la edad media de los almunos de genero femenino es :" ,
+      edadMedia(alumnosFemale)}
       break;
   case 14:
         /* ### Añadir nueva nota a los alumnos. Por cada alumno de la clase,

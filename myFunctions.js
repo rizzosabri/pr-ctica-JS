@@ -57,8 +57,11 @@
   export function listaDeSumatoria(listaDeListas){
   let listPlusScore=[]
   for (let i = 0; i <= listaDeListas.length-1 ; i++) {
-  listPlusScore.push((listaDeListas[i].reduce(function(a, b){ return a + b; })))
- }return listPlusScore }
+    if (listaDeListas[i].length===0){listPlusScore.push(0)}
+    else {
+  listPlusScore.push((listaDeListas[i].reduce(function(a, b){ return a + b; })))}}
+ 
+ return listPlusScore  }
 
    /*creo lista con la sumatoria de notas de todos los alumnos*/
    export function createlistaDePromedios(listaDeListas){
@@ -66,3 +69,5 @@
     for (let i = 0; i <= listaDeListas.length-1 ; i++) {
       listPromdios.push(((listaDeListas[i].reduce(function(a, b){ return a + b; })))/listaDeListas[i].length)
    }return listPromdios }
+
+   
