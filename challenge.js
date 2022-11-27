@@ -217,4 +217,4 @@ switch(numberFromConsole) {
 
 break;
 }
-}while(numberFromConsole!== 0 && numberFromConsole>=1 && numberFromConsole<=18);
+}while(numberFromConsole>0 && numberFromConsole<=18);
